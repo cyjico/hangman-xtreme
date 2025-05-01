@@ -15,6 +15,7 @@ public class Leaderboard {
     }
 
     public boolean tryAddEntry(String name, int score) {
+        // Assumes it starts from the largest and descending to the smallest (or null).
         for (int i = 0; i < entries.length; i++) {
             if (entries[i] == null || score > entries[i].getScore()) {
                 entries[i] = new LeaderboardEntry(name, score);
@@ -31,6 +32,7 @@ public class Leaderboard {
         for (int i = 0; i < entries.length && scan.hasNextLine(); i++) {
             String line = scan.nextLine();
 
+            // In our file, we store scores as "<NAME>§<SCORE>"
             entries[i] = new LeaderboardEntry(
                     line.substring(0, line.indexOf("§")),
                     Integer.parseInt(line.substring(line.indexOf("§") + 1)));
@@ -42,10 +44,22 @@ public class Leaderboard {
     public void save() throws IOException {
         FileWriter fw = new FileWriter(filename);
 
+        // In our file, we will store scores as "<NAME>§<SCORE>"
         for (LeaderboardEntry entry : entries) {
             fw.write(entry.getName() + "§" + entry.getScore());
         }
 
         fw.close();
+    }
+
+    public void display() {
+        for (LeaderboardEntry entry : entries) {
+            if (entry == null) {
+                System.out.println(String.format("%-15s %15s", "_____", "_____"));
+                continue;
+            }
+
+            System.out.println(String.format("%-15s %15d", entry.getName(), entry.getScore()));
+        }
     }
 }
