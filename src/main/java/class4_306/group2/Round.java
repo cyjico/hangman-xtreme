@@ -59,8 +59,6 @@ public class Round {
             }
         }
         System.out.println();
-
-        System.out.println("(debug): target is " + target);
     }
 
     private String promptForGuess() {
@@ -94,7 +92,7 @@ public class Round {
     private boolean handleGuess(String guess) {
         if (guess.length() > 1) {
             // User is guessing the whole word/sentence.
-            if (!guess.equals(targetUpperCased)) {
+            if (!guess.trim().equalsIgnoreCase(targetUpperCased)) {
                 livesLeft = 0;
                 System.out.print("Wrong word (automatic loss). ");
                 return false;
