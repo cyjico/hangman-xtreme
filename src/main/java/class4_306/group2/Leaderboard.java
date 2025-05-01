@@ -52,7 +52,7 @@ public class Leaderboard {
         fw.close();
     }
 
-    public void display() {
+    public void displayEntries() {
         for (LeaderboardEntry entry : entries) {
             if (entry == null) {
                 System.out.println(String.format("%-15s %15s", "_____", "_____"));
