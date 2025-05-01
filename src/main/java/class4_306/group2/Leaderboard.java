@@ -32,10 +32,10 @@ public class Leaderboard {
         for (int i = 0; i < entries.length && scan.hasNextLine(); i++) {
             String line = scan.nextLine();
 
-            // In our file, we store scores as "<NAME>§<SCORE>"
+            // In our file, we store scores as "<NAME>|<SCORE>"
             entries[i] = new LeaderboardEntry(
-                    line.substring(0, line.indexOf("§")),
-                    Integer.parseInt(line.substring(line.indexOf("§") + 1)));
+                    line.substring(0, line.indexOf("|")),
+                    Integer.parseInt(line.substring(line.indexOf("|") + 1)));
         }
 
         scan.close();
@@ -44,9 +44,14 @@ public class Leaderboard {
     public void save() throws IOException {
         FileWriter fw = new FileWriter(filename);
 
-        // In our file, we will store scores as "<NAME>§<SCORE>"
+        // In our file, we will store scores as "<NAME>|<SCORE>"
         for (LeaderboardEntry entry : entries) {
-            fw.write(entry.getName() + "§" + entry.getScore());
+            if (entry != null) {
+                fw.write(entry.getName());
+                fw.write('|');
+                fw.write(Integer.toString(entry.getScore()));
+                fw.write('\n');
+            }
         }
 
         fw.close();
