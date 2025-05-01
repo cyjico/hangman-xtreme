@@ -52,7 +52,7 @@ public class Round {
             }
         }
 
-        System.out.println();
+        System.out.println("\n");
 
         for (int i = 0; i < guessed.length; i++) {
             System.out.print(guessed[i] ? "█ " : (char) ('A' + i) + " ");
