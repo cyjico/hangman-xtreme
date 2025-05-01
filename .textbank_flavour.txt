@@ -1,0 +1,5 @@
+Grabbed IP address (192.168.2.26).
+Collected 1.523 BTC in the background.
+Collected 0.5562 BTC in the background.
+Collected 0.1294 BTC in the background.
+Unzipping zip bomb.

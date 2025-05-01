@@ -18,17 +18,20 @@ public class Round {
      * @return true if the player wins, false otherwise.
      */
     public boolean start() {
+        String handleGuessRes = "";
         while (livesLeft > 0) {
             displayStatus();
 
-            String guess = promptForGuess();
-            if (handleGuess(guess)) {
+            handleGuessRes = handleGuess(promptForGuess());
+            if (handleGuessRes.length() == 0) {
                 System.out.println("Congratulations! You guessed the word: " + target);
                 return true;
             }
         }
 
-        System.out.println("The word was: " + target);
+        System.out.println();
+
+        System.out.println(handleGuessRes + "The word was: " + target);
         return false;
     }
 
@@ -89,13 +92,14 @@ public class Round {
         return guess;
     }
 
-    private boolean handleGuess(String guess) {
+    private String handleGuess(String guess) {
         if (guess.length() > 1) {
             // User is guessing the whole word/sentence.
             if (!guess.trim().equalsIgnoreCase(targetUpperCased)) {
+                System.out.println(Main.FLAVOUR_TEXT_BANK.getRandomText());
+
                 livesLeft = 0;
-                System.out.print("Wrong word (automatic loss). ");
-                return false;
+                return "Wrong word (automatic loss). ";
             }
 
             boolean[] encountered = new boolean[26];
@@ -115,7 +119,7 @@ public class Round {
             }
 
             points += (missing - 1) * 1.5f;
-            return true;
+            return "";
         } else {
             // User is guessing a character.
             char letter = guess.charAt(0);
@@ -125,6 +129,8 @@ public class Round {
             if (targetUpperCased.indexOf(letter) >= 0) {
                 points++;
             } else {
+                System.out.println(Main.FLAVOUR_TEXT_BANK.getRandomText());
+
                 livesLeft--;
             }
 
@@ -133,16 +139,11 @@ public class Round {
                 char c = targetUpperCased.charAt(i);
 
                 if (Character.isLetter(c) && !guessed[c - 'A']) {
-                    if (livesLeft == 0) {
-                        System.out.println(Ascii.getGallows(0));
-                        System.out.print("Out of lives. ");
-                    }
-
-                    return false;
+                    return Ascii.getGallows(0) + "\nOut of lives. ";
                 }
             }
 
-            return true;
+            return "";
         }
     }
 
