@@ -18,6 +18,11 @@ public class Leaderboard {
         // Assumes it starts from the largest and descending to the smallest (or null).
         for (int i = 0; i < entries.length; i++) {
             if (entries[i] == null || score > entries[i].getScore()) {
+                // Shift everything down before replacing.
+                for (int j = entries.length - 1; j > i; j--) {
+                    entries[j] = entries[j - 1];
+                }
+
                 entries[i] = new LeaderboardEntry(name, score);
                 return true;
             }
