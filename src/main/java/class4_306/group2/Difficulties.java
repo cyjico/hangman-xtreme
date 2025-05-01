@@ -19,8 +19,8 @@ public class Difficulties {
         }
     }
 
-    public static final Difficulty easy = new Difficulty("texbank_easy.txt", 0.5f);
-    public static final Difficulty medium = new Difficulty("texbank_medium.txt", 1f);
-    public static final Difficulty hard = new Difficulty("texbank_hard.txt", 2f);
-    public static final Difficulty demon = new Difficulty("texbank_demon.txt", 2.5f);
+    public static final Difficulty easy = new Difficulty("textbank_easy.txt", 0.5f);
+    public static final Difficulty medium = new Difficulty("textbank_medium.txt", 1f);
+    public static final Difficulty hard = new Difficulty("textbank_hard.txt", 2f);
+    public static final Difficulty demon = new Difficulty("textbank_demon.txt", 2.5f);
 }
