@@ -15,7 +15,7 @@ public class Round {
     /**
      * Starts the round.
      * 
-     * @return true if the player wins, false otherwise.
+     * @return {@code true} if the player wins, {@code false} otherwise.
      */
     public boolean start() {
         String handleGuessRes = "";
@@ -155,70 +155,5 @@ public class Round {
 
     public int getPoints() {
         return points;
-    }
-
-    private static class Ascii {
-        private static String[] _gallows = {
-                """
-                         +---+
-                         |   |
-                         O   |
-                        /|\\  |
-                        / \\  |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                         O   |
-                        /|\\  |
-                        /    |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                         O   |
-                        /|\\  |
-                             |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                         O   |
-                        /|   |
-                             |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                         O   |
-                         |   |
-                             |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                         O   |
-                             |
-                             |
-                             |
-                        """,
-                """
-                         +---+
-                         |   |
-                             |
-                             |
-                             |
-                             |
-                        """
-        };
-
-        public static String getGallows(int index) {
-            return _gallows[index];
-        }
     }
 }
