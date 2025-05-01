@@ -92,6 +92,12 @@ public class Round {
         return guess;
     }
 
+    /**
+     * Processes a user's guess (single letter or full word).
+     *
+     * @param guess Validated and capitalized user input.
+     * @return Feedback string (empty if successful, message if otherwise).
+     */
     private String handleGuess(String guess) {
         if (guess.length() > 1) {
             // User is guessing the whole word/sentence.
