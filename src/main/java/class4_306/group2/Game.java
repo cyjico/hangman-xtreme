@@ -13,14 +13,7 @@ public class Game {
 
     public void start() throws IOException {
         while (true) {
-            System.out.println(
-                    """
-                            ▄ .▄ ▄▄▄·  ▐ ▄  ▄▄     ▌ ▄ ·.  ▄▄▄·  ▐ ▄     ▐▄  ▄ ▄▄▄▄▄▄▄▄  ▄▄▄ .  ▌ ▄ ·. ▄▄▄ .
-                            ██ ▐█▐█ ▀█  █▌▐█▐█ ▀  ·██ ▐███ ▐█ ▀█  █▌▐█     █▌█▌  ██  ▀▄ █·▀▄.▀··██ ▐███ ▀▄.▀·
-                            ██▀▐█▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▐█ ▌▐▌▐█·▄█▀▀█ ▐█▐▐▌     ·██·  ▐█. ▐▀▀▄ ▐▀▀ ▄▐█ ▌▐▌▐█·▐▀▀ ▄
-                            ██▌▐▀▐█  ▐▌██▐█▌▐█▄ ▐███ ██▌▐█▌▐█  ▐▌██▐█▌     ▐█·█▌ ▐█▌·▐█ █▌▐█▄▄▌██ ██▌▐█▌▐█▄▄▌
-                            ▀▀▀ · ▀  ▀ ▀▀ █ ·▀▀▀▀ ▀▀  █ ▀▀▀ ▀  ▀ ▀▀ █      ▀▀ ▀▀ ▀▀▀ .▀  ▀ ▀▀▀ ▀▀  █ ▀▀▀ ▀▀▀
-                            """);
+            System.out.println(Ascii.getTitleCard());
             System.out.println("Press enter to start a new game. Type anything to quit.");
 
             if (Utility.scanner.nextLine().length() > 0) {

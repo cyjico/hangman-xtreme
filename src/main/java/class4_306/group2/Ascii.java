@@ -1,6 +1,14 @@
 package class4_306.group2;
 
 public class Ascii {
+    private static String titleCard = """
+            ▄ .▄ ▄▄▄·  ▐ ▄  ▄▄     ▌ ▄ ·.  ▄▄▄·  ▐ ▄     ▐▄  ▄ ▄▄▄▄▄▄▄▄  ▄▄▄ .  ▌ ▄ ·. ▄▄▄ .
+            ██ ▐█▐█ ▀█  █▌▐█▐█ ▀  ·██ ▐███ ▐█ ▀█  █▌▐█     █▌█▌  ██  ▀▄ █·▀▄.▀··██ ▐███ ▀▄.▀·
+            ██▀▐█▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▐█ ▌▐▌▐█·▄█▀▀█ ▐█▐▐▌     ·██·  ▐█. ▐▀▀▄ ▐▀▀ ▄▐█ ▌▐▌▐█·▐▀▀ ▄
+            ██▌▐▀▐█  ▐▌██▐█▌▐█▄ ▐███ ██▌▐█▌▐█  ▐▌██▐█▌     ▐█·█▌ ▐█▌·▐█ █▌▐█▄▄▌██ ██▌▐█▌▐█▄▄▌
+            ▀▀▀ · ▀  ▀ ▀▀ █ ·▀▀▀▀ ▀▀  █ ▀▀▀ ▀  ▀ ▀▀ █      ▀▀ ▀▀ ▀▀▀ .▀  ▀ ▀▀▀ ▀▀  █ ▀▀▀ ▀▀▀
+            """;
+
     private static String[] gallows = {
             """
                      +---+
@@ -59,6 +67,10 @@ public class Ascii {
                          |
                     """
     };
+
+    public static String getTitleCard() {
+        return titleCard;
+    }
 
     public static String getGallows(int index) {
         return gallows[index];
