@@ -97,7 +97,8 @@ public class Round {
      * Processes a user's guess (single letter or full word).
      *
      * @param guess Validated and capitalized user input.
-     * @return Feedback string (empty if successful, message if otherwise).
+     * @return Feedback string (empty if player guessed the whole word, message if
+     *         otherwise).
      */
     private String handleGuess(String guess) {
         if (guess.length() > 1) {
@@ -146,7 +147,7 @@ public class Round {
                 char c = targetUpperCased.charAt(i);
 
                 if (Character.isLetter(c) && !guessed[c - 'A']) {
-                    return Ascii.getGallows(0) + "\nOut of lives. ";
+                    return livesLeft <= 0 ? (Ascii.getGallows(0) + "\nOut of lives. ") : "_SHOULDNT APPEAR_";
                 }
             }
 
