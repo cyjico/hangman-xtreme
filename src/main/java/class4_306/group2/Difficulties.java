@@ -1,26 +1,65 @@
 package class4_306.group2;
 
 public class Difficulties {
-    public static class Difficulty {
-        private String filename;
-        private float multiplier;
+    public static abstract class Difficulty {
+        public abstract String getFilename();
 
-        public Difficulty(String filename, float multiplier) {
-            this.filename = filename;
-            this.multiplier = multiplier;
-        }
+        public abstract float getMultiplier();
+    }
 
+    public static class Easy extends Difficulty {
+        @Override
         public String getFilename() {
-            return filename;
+            return "textbank_easy.txt";
         }
 
+        @Override
         public float getMultiplier() {
-            return multiplier;
+            return 0.5f;
         }
     }
 
-    public static Difficulty easy = new Difficulty("textbank_easy.txt", 0.5f);
-    public static Difficulty medium = new Difficulty("textbank_medium.txt", 1f);
-    public static Difficulty hard = new Difficulty("textbank_hard.txt", 2f);
-    public static Difficulty demon = new Difficulty("textbank_demon.txt", 2.5f);
+    public static final Easy easy = new Easy();
+
+    public static class Medium extends Difficulty {
+        @Override
+        public String getFilename() {
+            return "textbank_medium.txt";
+        }
+
+        @Override
+        public float getMultiplier() {
+            return 1f;
+        }
+    }
+
+    public static final Medium medium = new Medium();
+
+    public static class Hard extends Difficulty {
+        @Override
+        public String getFilename() {
+            return "textbank_hard.txt";
+        }
+
+        @Override
+        public float getMultiplier() {
+            return 2f;
+        }
+    }
+
+    public static final Hard hard = new Hard();
+
+    public static class Demon extends Difficulty {
+        @Override
+        public String getFilename() {
+            return "textbank_demon.txt";
+        }
+
+        @Override
+        public float getMultiplier() {
+            return 2.5f;
+        }
+    }
+
+    public static final Demon demon = new Demon();
 }
