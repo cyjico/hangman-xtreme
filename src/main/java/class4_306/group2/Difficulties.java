@@ -19,7 +19,7 @@ public class Difficulties {
         }
     }
 
-    public static final Easy easy = new Easy();
+    public static final Difficulty easy = new Easy();
 
     public static class Medium extends Difficulty {
         @Override
@@ -33,7 +33,7 @@ public class Difficulties {
         }
     }
 
-    public static final Medium medium = new Medium();
+    public static final Difficulty medium = new Medium();
 
     public static class Hard extends Difficulty {
         @Override
@@ -47,7 +47,7 @@ public class Difficulties {
         }
     }
 
-    public static final Hard hard = new Hard();
+    public static final Difficulty hard = new Hard();
 
     public static class Demon extends Difficulty {
         @Override
@@ -61,5 +61,5 @@ public class Difficulties {
         }
     }
 
-    public static final Demon demon = new Demon();
+    public static final Difficulty demon = new Demon();
 }
