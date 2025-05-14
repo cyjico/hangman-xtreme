@@ -126,7 +126,7 @@ public class Round {
                 }
             }
 
-            points += (missing - 1) * 1.5f;
+            points += missing > 1 ? missing * 1.5f : missing;
             return "";
         } else {
             // User is guessing a character.
